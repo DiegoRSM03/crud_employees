@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans-Regular.ttf"); }
+
+@font-face {
+  font-family: "OpenSans Bold";
+  src: url("../fonts/OpenSans-Bold.ttf"); }
+
+@font-face {
+  font-family: "OpenSans SemiBold";
+  src: url("../fonts/OpenSans-SemiBold.ttf"); }
+
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-Light.ttf"); }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default; }
+
+body {
+  background-color: #FAFAFA; }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; }
+
+.content {
+  display: flex;
+  width: 80%;
+  max-width: 1200px; }
+
+nav {
+  color: #FAFAFA;
+  background-color: #222;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; }
+  nav .content {
+    align-items: center;
+    justify-content: space-between;
+    font-family: "OpenSans Light";
+    font-size: 1.3rem;
+    padding: .8rem 0; }
+    nav .content span {
+      font-size: 1.6rem; }
+
+.tables {
+  margin-top: 6rem; }
+  .tables .content {
+    align-items: center;
+    justify-content: space-between; }
+    .tables .content .table {
+      color: #A2A2A2;
+      background-color: #FAFAFA;
+      font-family: "OpenSans Bold";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: .3s ease 0s;
+      width: 15rem;
+      padding: .7rem 0;
+      border: 1px solid #A2A2A2;
+      border-radius: 5px;
+      box-shadow: 0 2px 1px 1px rgba(24, 24, 24, 0.1); }
+      .tables .content .table span {
+        margin-right: .5rem;
+        cursor: pointer; }
+      .tables .content .table .title {
+        cursor: pointer; }
+      .tables .content .table:hover {
+        transform: scale(1.1);
+        box-shadow: 0 7px 3px 1px rgba(24, 24, 24, 0.1); }
+    .tables .content .table-selected {
+      color: #FAFAFA;
+      background-color: #B900BF;
+      border: 1px solid #B900BF; }
+
+.table_selected {
+  margin-top: 5rem; }
+  .table_selected .content {
+    flex-direction: column; }
+    .table_selected .content table {
+      border-collapse: collapse;
+      border: none;
+      border-radius: 5px;
+      overflow: hidden;
+      width: 100%; }
+      .table_selected .content table thead {
+        color: #FAFAFA;
+        background-color: #222;
+        border: 1px solid #222;
+        font-family: "OpenSans";
+        width: 100%; }
+        .table_selected .content table thead tr th {
+          text-align: left;
+          padding: .5rem 0 .5rem 1rem; }
+      .table_selected .content table tbody {
+        width: 100%;
+        border: 1px solid #A2A2A2; }
+        .table_selected .content table tbody tr {
+          width: 100%;
+          color: #A2A2A2;
+          font-family: "OpenSans SemiBold"; }
+          .table_selected .content table tbody tr td {
+            padding: .3rem 0 .3rem 1rem;
+            cursor: pointer; }
+          .table_selected .content table tbody tr .actions {
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 1.2rem;
+            width: 100%; }
+            .table_selected .content table tbody tr .actions .edit, .table_selected .content table tbody tr .actions .remove {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 25%;
+              padding: .3rem;
+              color: #FAFAFA;
+              background-color: #A2A2A2;
+              border-radius: 3px;
+              cursor: pointer;
+              transition: .2s ease 0s; }
+            .table_selected .content table tbody tr .actions .edit:hover {
+              background-color: #0057BF; }
+            .table_selected .content table tbody tr .actions .remove:hover {
+              background-color: #B00000; }
+          .table_selected .content table tbody tr:hover {
+            color: #FAFAFA;
+            background-color: #B900BF; }
+    .table_selected .content .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin: 1rem 0 2rem 0; }
+      .table_selected .content .pagination #prev-page span {
+        margin-right: .8rem; }
+      .table_selected .content .pagination #next-page span {
+        margin-left: .8rem; }
+      .table_selected .content .pagination #prev-page, .table_selected .content .pagination #next-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FAFAFA;
+        background-color: #222;
+        font-family: "OpenSans Bold";
+        width: 20%;
+        padding: .8rem 0;
+        border-radius: 5px;
+        cursor: pointer; }

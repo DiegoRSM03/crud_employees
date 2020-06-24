@@ -1,0 +1,40 @@
+.tables
+	margin-top: 6rem
+
+	.content
+		align-items: center
+		justify-content: space-between
+
+		.table
+			color: $GRAY
+			background-color: $WHITE
+			font-family: $OSBold
+
+			display: flex
+			align-items: center
+			justify-content: center
+
+			cursor: pointer
+			transition: .3s ease 0s
+
+			width: 15rem
+			padding: .7rem 0
+			border: 1px solid $GRAY
+			border-radius: 5px
+			box-shadow: 0 2px 1px 1px rgba(24, 24, 24, .1)
+
+			span
+				margin-right: .5rem
+				cursor: pointer
+
+			.title
+				cursor: pointer
+
+			&:hover
+				transform: scale(1.1)
+				box-shadow: 0 7px 3px 1px rgba(24, 24, 24, .1)
+
+		.table-selected
+			color: $WHITE
+			background-color: $PURPLE
+			border: 1px solid $PURPLE

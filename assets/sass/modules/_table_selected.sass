@@ -1,0 +1,101 @@
+.table_selected
+	margin-top: 5rem
+	
+	.content
+		flex-direction: column
+
+		table
+			border-collapse: collapse
+			border: none
+			border-radius: 5px
+			overflow: hidden
+
+			width: 100%
+
+			thead
+				color: $WHITE
+				background-color: $BLACK
+				border: 1px solid $BLACK
+
+				font-family: $OS
+				width: 100%
+
+				tr
+					th
+						text-align: left
+						padding: .5rem 0 .5rem 1rem
+
+			tbody
+				width: 100%
+				border: 1px solid $GRAY;
+
+				tr
+					width: 100%
+					color: $GRAY
+					font-family: $OSSemiBold
+
+					td
+						padding: .3rem 0 .3rem 1rem
+						cursor: pointer
+
+					.actions
+						display: flex
+						justify-content: space-evenly
+						font-size: 1.2rem
+						width: 100%
+
+						.edit, .remove
+							display: flex
+							align-items: center
+							justify-content: center
+							width: 25%
+							padding: .3rem
+							color: $WHITE
+							background-color: $GRAY
+							border-radius: 3px
+							cursor: pointer
+							transition: .2s ease 0s
+						
+						.edit:hover
+							background-color: $BLUE
+						.remove:hover
+							background-color: $RED
+
+
+					&:hover
+						color: $WHITE
+						background-color: $PURPLE
+
+
+					
+
+		.pagination
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+			width: 100%
+			margin: 1rem 0 2rem 0
+
+			#prev-page span
+				margin-right: .8rem
+
+			#next-page span
+				margin-left: .8rem
+
+			#prev-page, #next-page
+				display: flex
+				align-items: center
+				justify-content: center
+
+				color: $WHITE
+				background-color: $BLACK
+
+				font-family: $OSBold
+
+				width: 20%
+				padding: .8rem 0
+				border-radius: 5px
+				cursor: pointer
+
+
