@@ -14,7 +14,7 @@
 				<span class="flaticon-left-arrow"></span>
 				Anterior
 			</div>
-			<div class="pages"></div>
+			<div id="pages"></div>
 			<div id="next-page">
 				Siguiente
 				<span class="flaticon-right-arrow"></span>

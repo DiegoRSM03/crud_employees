@@ -1,9 +1,14 @@
 <?php
+
 header('Content-Type: application/json');
 
-require('../connection.php');
+require('../../../connection.php');
 
 $page = $_GET['page'] - 1;
+
+if ($page !== 0) {
+	$page += 15;
+}
 
 $query = "SELECT emp_no, first_name, last_name, hire_date FROM employees LIMIT $page, 15";
 $result = mysqli_query($link, $query);

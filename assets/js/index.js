@@ -1,28 +1,44 @@
 document.addEventListener('DOMContentLoaded', function () {
 	localStorage.setItem('page', '1');
 
-	retrieveTable('User');
+	retrieveTable('employees');
 
 	document.getElementById('table-employees').addEventListener('click', function () {
-		retrieveTable('User');
+		retrieveTable('employees');
 		selectTable('table-employees');
 	});
 	document.getElementById('table-departments').addEventListener('click', function () {
-		retrieveTable('Department');
+		retrieveTable('departments');
 		selectTable('table-departments');
 	});
 	document.getElementById('table-titles').addEventListener('click', function () {
-		retrieveTable('Title');
+		retrieveTable('titles');
 		selectTable('table-titles');
 	});
 	document.getElementById('table-salaries').addEventListener('click', function () {
-		retrieveTable('Salary');
+		retrieveTable('salaries');
 		selectTable('table-salaries');
+	});
+
+	document.getElementById('prev-page').addEventListener('click', function () {
+		var currentPage = localStorage.getItem('page');
+		if (currentPage != 1) {
+			currentPage--;
+			localStorage.setItem('page', currentPage);
+			retrieveTable(localStorage.getItem('section'));
+		}
+	});
+	document.getElementById('next-page').addEventListener('click', function () {
+		var currentPage = localStorage.getItem('page');
+		currentPage++;
+		localStorage.setItem('page', currentPage);
+
+		retrieveTable(localStorage.getItem('section'));
 	});
 });
 
 async function retrieveTable (tableName) {
-	let response = await fetch(window.location.href + 'database/api/' + tableName + '.php?page=' + localStorage.getItem('page'));
+	let response = await fetch(window.location.href + 'database/api/v1/' + tableName + '/retrieve.php?page=' + localStorage.getItem('page'));
 	let data = await response.json();
 	console.log(data);
 
@@ -65,16 +81,20 @@ function fillTable (data, tableName) {
 	tbody.innerHTML = '';
 
 	switch (tableName) {
-		case 'User':
+		case 'employees':
+			localStorage.setItem('section', 'employees');
 			fillTableWithUsers(data);
 			break;
-		case 'Department':
+		case 'departments':
+			localStorage.setItem('section', 'departments');
 			fillTableWithDepartments(data);
 			break;
-		case 'Title':
+		case 'titles':
+			localStorage.setItem('section', 'titles');	
 			fillTableWithTitles(data);
 			break;
-		case 'Salary':
+		case 'salaries':
+			localStorage.setItem('section', 'salaries');
 			fillTableWithSalaries(data);
 			break;
 	}
@@ -135,6 +155,10 @@ function fillTableWithUsers (data) {
 		addActionsToRecord(tr);
 
 		tbody.appendChild(tr);
+
+		tr.addEventListener('click', function () {
+			window.location.href = window.location.href + 'views/user.php?id=' + data[i];
+		});
 	}
 }
 
