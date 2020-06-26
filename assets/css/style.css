@@ -38,6 +38,7 @@ nav {
   color: #FAFAFA;
   background-color: #222;
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   right: 0; }
@@ -155,3 +156,88 @@ nav {
         padding: .8rem 0;
         border-radius: 5px;
         cursor: pointer; }
+
+#banner {
+  height: 20vh;
+  max-height: 150px;
+  margin-top: 3rem;
+  background-color: #222; }
+  #banner .content {
+    height: 70%;
+    position: relative;
+    z-index: 1;
+    align-items: flex-end;
+    justify-content: flex-end; }
+    #banner .content .user-img {
+      position: absolute;
+      bottom: -5rem;
+      left: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      width: 10rem;
+      height: 10rem;
+      color: #FAFAFA;
+      background-color: #6f0073;
+      border-radius: 50%; }
+      #banner .content .user-img span {
+        font-size: 7rem;
+        margin-bottom: -.8rem; }
+    #banner .content .name {
+      color: #FAFAFA;
+      font-family: "OpenSans Light";
+      font-size: 2rem; }
+
+#information {
+  margin-top: 20vh; }
+  #information .content {
+    flex-direction: column;
+    justify-content: center; }
+    #information .content h1 {
+      color: #222;
+      font-family: "OpenSans Bold"; }
+    #information .content .data {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 2rem; }
+      #information .content .data > div {
+        color: #A2A2A2;
+        font-family: "OpenSans Bold";
+        font-size: 1.3rem; }
+        #information .content .data > div:hover {
+          color: #222; }
+
+#salaries {
+  margin-top: 7rem; }
+  #salaries .content {
+    flex-direction: column; }
+    #salaries .content h1 {
+      color: #222;
+      font-family: "OpenSans Bold"; }
+    #salaries .content table {
+      width: 100%;
+      margin: 2rem 0 4rem;
+      border-collapse: collapse;
+      border-radius: 5px;
+      overflow: hidden; }
+      #salaries .content table thead {
+        color: #FAFAFA;
+        background-color: #222;
+        font-family: "OpenSans Bold";
+        font-size: 1.2rem; }
+        #salaries .content table thead tr th {
+          text-align: left;
+          padding: .5rem 0 .5rem 2rem; }
+      #salaries .content table tbody {
+        color: #222;
+        background-color: rgba(0, 0, 0, 0.05); }
+        #salaries .content table tbody tr td {
+          font-family: "OpenSans";
+          padding: .3rem 0 .3rem 2rem; }
+        #salaries .content table tbody tr:hover {
+          background-color: rgba(0, 0, 0, 0.1); }
+        #salaries .content table tbody tr:hover td {
+          font-family: "OpenSans Bold"; }

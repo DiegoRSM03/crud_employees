@@ -1,0 +1,39 @@
+#banner
+	height: 20vh
+	max-height: 150px
+	margin-top: 3rem
+	background-color: $BLACK;
+
+	.content
+		height: 70%
+		position: relative
+		z-index: 1
+
+		align-items: flex-end
+		justify-content: flex-end
+
+		.user-img
+			position: absolute
+			bottom: -5rem
+			left: 0
+
+			display: flex
+			align-items: flex-end
+			justify-content: center
+			overflow: hidden
+
+			width: 10rem
+			height: 10rem
+
+			color: $WHITE
+			background-color: darken($PURPLE, 15)
+			border-radius: 50%
+
+			span
+				font-size: 7rem
+				margin-bottom: -.8rem
+
+		.name
+			color: $WHITE
+			font-family: $OSLight
+			font-size: 2rem

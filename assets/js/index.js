@@ -157,7 +157,7 @@ function fillTableWithUsers (data) {
 		tbody.appendChild(tr);
 
 		tr.addEventListener('click', function () {
-			window.location.href = window.location.href + 'views/user.php?id=' + data[i];
+			window.location.href = window.location.href + 'views/user.php?emp_no=' + data[i].emp_no;
 		});
 	}
 }

@@ -1,0 +1,42 @@
+#salaries
+	margin-top: 7rem
+
+	.content
+		flex-direction: column
+
+		h1
+			color: $BLACK
+			font-family: $OSBold
+
+		table
+			width: 100%
+			margin: 2rem 0 4rem
+			border-collapse: collapse
+			border-radius: 5px
+			overflow: hidden
+			
+			thead
+				color: $WHITE
+				background-color: $BLACK
+				font-family: $OSBold
+				font-size: 1.2rem
+
+				tr
+					th
+						text-align: left
+						padding: .5rem 0 .5rem 2rem
+
+			tbody
+				color: $BLACK
+				background-color: rgba(0, 0, 0, .05)
+
+				tr
+					td
+						font-family: $OS
+						padding: .3rem 0 .3rem 2rem
+
+					&:hover
+						background-color: rgba(0, 0, 0, .1)
+
+					&:hover td
+						font-family: $OSBold
