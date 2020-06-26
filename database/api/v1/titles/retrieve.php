@@ -5,6 +5,7 @@ header('Content-Type: application/json');
 require('../../../connection.php');
 
 $page = $_GET['page'] - 1;
+$page = 15 * $page;
 
 $query = "SELECT * FROM titles LIMIT $page, 15";
 $result = mysqli_query($link, $query);

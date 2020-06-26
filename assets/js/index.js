@@ -4,18 +4,22 @@ document.addEventListener('DOMContentLoaded', function () {
 	retrieveTable('employees');
 
 	document.getElementById('table-employees').addEventListener('click', function () {
+		localStorage.setItem('page', '1');
 		retrieveTable('employees');
 		selectTable('table-employees');
 	});
 	document.getElementById('table-departments').addEventListener('click', function () {
+		localStorage.setItem('page', '1');
 		retrieveTable('departments');
 		selectTable('table-departments');
 	});
 	document.getElementById('table-titles').addEventListener('click', function () {
+		localStorage.setItem('page', '1');
 		retrieveTable('titles');
 		selectTable('table-titles');
 	});
 	document.getElementById('table-salaries').addEventListener('click', function () {
+		localStorage.setItem('page', '1');
 		retrieveTable('salaries');
 		selectTable('table-salaries');
 	});

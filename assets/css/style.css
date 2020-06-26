@@ -34,6 +34,54 @@ body {
   width: 80%;
   max-width: 1200px; }
 
+table {
+  border-collapse: collapse;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%; }
+  table thead {
+    color: #FAFAFA;
+    background-color: #222;
+    border: 1px solid #222;
+    font-family: "OpenSans";
+    width: 100%; }
+    table thead tr th {
+      text-align: left;
+      padding: .5rem 0 .5rem 1rem; }
+  table tbody {
+    width: 100%;
+    border: 1px solid #A2A2A2; }
+    table tbody tr {
+      width: 100%;
+      color: #A2A2A2;
+      font-family: "OpenSans SemiBold"; }
+      table tbody tr td {
+        padding: .3rem 0 .3rem 1rem; }
+      table tbody tr .actions {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 1.2rem;
+        width: 100%; }
+        table tbody tr .actions .edit, table tbody tr .actions .remove {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 25%;
+          padding: .3rem;
+          color: #FAFAFA;
+          background-color: #A2A2A2;
+          border-radius: 3px;
+          cursor: pointer;
+          transition: .2s ease 0s; }
+        table tbody tr .actions .edit:hover {
+          background-color: #0057BF; }
+        table tbody tr .actions .remove:hover {
+          background-color: #B00000; }
+      table tbody tr:hover {
+        color: #FAFAFA;
+        background-color: #a000a6; }
+
 nav {
   color: #FAFAFA;
   background-color: #222;
@@ -87,54 +135,6 @@ nav {
   margin-top: 5rem; }
   .table_selected .content {
     flex-direction: column; }
-    .table_selected .content table {
-      border-collapse: collapse;
-      border: none;
-      border-radius: 5px;
-      overflow: hidden;
-      width: 100%; }
-      .table_selected .content table thead {
-        color: #FAFAFA;
-        background-color: #222;
-        border: 1px solid #222;
-        font-family: "OpenSans";
-        width: 100%; }
-        .table_selected .content table thead tr th {
-          text-align: left;
-          padding: .5rem 0 .5rem 1rem; }
-      .table_selected .content table tbody {
-        width: 100%;
-        border: 1px solid #A2A2A2; }
-        .table_selected .content table tbody tr {
-          width: 100%;
-          color: #A2A2A2;
-          font-family: "OpenSans SemiBold"; }
-          .table_selected .content table tbody tr td {
-            padding: .3rem 0 .3rem 1rem;
-            cursor: pointer; }
-          .table_selected .content table tbody tr .actions {
-            display: flex;
-            justify-content: space-evenly;
-            font-size: 1.2rem;
-            width: 100%; }
-            .table_selected .content table tbody tr .actions .edit, .table_selected .content table tbody tr .actions .remove {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              width: 25%;
-              padding: .3rem;
-              color: #FAFAFA;
-              background-color: #A2A2A2;
-              border-radius: 3px;
-              cursor: pointer;
-              transition: .2s ease 0s; }
-            .table_selected .content table tbody tr .actions .edit:hover {
-              background-color: #0057BF; }
-            .table_selected .content table tbody tr .actions .remove:hover {
-              background-color: #B00000; }
-          .table_selected .content table tbody tr:hover {
-            color: #FAFAFA;
-            background-color: #a000a6; }
     .table_selected .content .pagination {
       display: flex;
       align-items: center;
@@ -218,26 +218,4 @@ nav {
       color: #222;
       font-family: "OpenSans Bold"; }
     #salaries .content table {
-      width: 100%;
-      margin: 2rem 0 4rem;
-      border-collapse: collapse;
-      border-radius: 5px;
-      overflow: hidden; }
-      #salaries .content table thead {
-        color: #FAFAFA;
-        background-color: #222;
-        font-family: "OpenSans Bold";
-        font-size: 1.2rem; }
-        #salaries .content table thead tr th {
-          text-align: left;
-          padding: .5rem 0 .5rem 2rem; }
-      #salaries .content table tbody {
-        color: #222;
-        background-color: rgba(0, 0, 0, 0.05); }
-        #salaries .content table tbody tr td {
-          font-family: "OpenSans";
-          padding: .3rem 0 .3rem 2rem; }
-        #salaries .content table tbody tr:hover {
-          background-color: rgba(0, 0, 0, 0.1); }
-        #salaries .content table tbody tr:hover td {
-          font-family: "OpenSans Bold"; }
+      margin: 2rem 0 4rem; }
