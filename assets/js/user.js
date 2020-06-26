@@ -45,7 +45,12 @@ function fillEmployeeInfo (data) {
 			document.getElementById('title-' + (i+1) + '-from-date').innerHTML = titleFromDate + ' to ';
 			document.getElementById('title-' + (i+1) + '-to-date').innerHTML = titleToDate;
 		}
-		document.getElementById('iconfont-medal').classList.add('flaticon-medal');
+		document.getElementById('iconfont-medal').classList.add('flaticon-certificate');
+
+	} else {
+		document.getElementById('title-1').innerHTML = data.info_titles_department[0].title;
+		document.getElementById('title-1-from-date').innerHTML = data.info_titles_department[0].from_date;
+		document.getElementById('title-1-to-date').innerHTML = data.info_titles_department[0].to_date;
 	}
 
 

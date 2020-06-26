@@ -80,8 +80,8 @@ nav {
         box-shadow: 0 7px 3px 1px rgba(24, 24, 24, 0.1); }
     .tables .content .table-selected {
       color: #FAFAFA;
-      background-color: #B900BF;
-      border: 1px solid #B900BF; }
+      background-color: #a000a6;
+      border: 1px solid #a000a6; }
 
 .table_selected {
   margin-top: 5rem; }
@@ -134,7 +134,7 @@ nav {
               background-color: #B00000; }
           .table_selected .content table tbody tr:hover {
             color: #FAFAFA;
-            background-color: #B900BF; }
+            background-color: #a000a6; }
     .table_selected .content .pagination {
       display: flex;
       align-items: center;
@@ -179,7 +179,7 @@ nav {
       width: 10rem;
       height: 10rem;
       color: #FAFAFA;
-      background-color: #6f0073;
+      background-color: #a000a6;
       border-radius: 50%; }
       #banner .content .user-img span {
         font-size: 7rem;

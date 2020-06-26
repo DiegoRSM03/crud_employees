@@ -15,12 +15,12 @@
 				<span id="department"></span>
 			</div>
 			<div class="hire-date">
-				<span class="flaticon-group"></span>
+				<span class="flaticon-invoice"></span>
 				<span id="hire-date"></span>
 			</div>
 			<div class="titles">
 				<div class="title">
-					<span class="flaticon-medal"></span>
+					<span class="flaticon-certificate"></span>
 					<span id="title-1"></span>
 					<span id="title-1-from-date"></span>
 					<span id="title-1-to-date"></span>

@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 23/06/2020 17:06
+  	Creation date: 26/06/2020 00:13
   	*/
 
 @font-face {
@@ -31,17 +31,21 @@ font-style: normal;
 .flaticon-check:before { content: "\f100"; }
 .flaticon-dollar:before { content: "\f101"; }
 .flaticon-group:before { content: "\f102"; }
-.flaticon-medal:before { content: "\f103"; }
-.flaticon-business-center:before { content: "\f104"; }
-.flaticon-close:before { content: "\f105"; }
-.flaticon-edit:before { content: "\f106"; }
-.flaticon-delete:before { content: "\f107"; }
-.flaticon-visibility:before { content: "\f108"; }
-.flaticon-right-arrow:before { content: "\f109"; }
-.flaticon-left-arrow:before { content: "\f10a"; }
-.flaticon-down-arrow:before { content: "\f10b"; }
-.flaticon-add:before { content: "\f10c"; }
-.flaticon-list:before { content: "\f10d"; }
-.flaticon-user-black-close-up-shape:before { content: "\f10e"; }
-.flaticon-toilet:before { content: "\f10f"; }
-.flaticon-gift:before { content: "\f110"; }
+.flaticon-business-center:before { content: "\f103"; }
+.flaticon-close:before { content: "\f104"; }
+.flaticon-edit:before { content: "\f105"; }
+.flaticon-delete:before { content: "\f106"; }
+.flaticon-visibility:before { content: "\f107"; }
+.flaticon-right-arrow:before { content: "\f108"; }
+.flaticon-left-arrow:before { content: "\f109"; }
+.flaticon-down-arrow:before { content: "\f10a"; }
+.flaticon-add:before { content: "\f10b"; }
+.flaticon-list:before { content: "\f10c"; }
+.flaticon-user-black-close-up-shape:before { content: "\f10d"; }
+.flaticon-toilet:before { content: "\f10e"; }
+.flaticon-gift:before { content: "\f10f"; }
+.flaticon-information:before { content: "\f110"; }
+.flaticon-warning:before { content: "\f111"; }
+.flaticon-warning-1:before { content: "\f112"; }
+.flaticon-invoice:before { content: "\f113"; }
+.flaticon-certificate:before { content: "\f114"; }

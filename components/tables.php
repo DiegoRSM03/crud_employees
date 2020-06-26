@@ -9,7 +9,7 @@
 			<div class="title">Departments</div>
 		</div>
 		<div id="table-titles" class="table">
-			<span class="flaticon-medal"></span>
+			<span class="flaticon-certificate"></span>
 			<div class="title">Titles</div>
 		</div>
 		<div id="table-salaries" class="table">
