@@ -77,12 +77,17 @@ function addActionsToRecord (tr) {
 	tr.appendChild(actions);
 }
 
-function fillTable (data, tableName) {
+function emptyTable () {
 	var thead = document.getElementById('thead');
 	thead.innerHTML = '';
 
 	var tbody = document.getElementById('tbody');
 	tbody.innerHTML = '';
+}
+
+function fillTable (data, tableName) {
+
+	emptyTable();
 
 	switch (tableName) {
 		case 'employees':
@@ -178,11 +183,15 @@ function fillTableWithDepartments (data) {
 	var thDeptName = document.createElement('th');
 	thDeptName.innerHTML = 'Nombre del Departamento';
 
+	var thTotalEmployees = document.createElement('th');
+	thTotalEmployees.innerHTML = 'Total de Empleados';
+
 	var thActions = document.createElement('th');
 	thActions.innerHTML = 'Acciones';
 
 	tr.appendChild(thDeptNo);
 	tr.appendChild(thDeptName);
+	tr.appendChild(thTotalEmployees);
 	tr.appendChild(thActions);
 
 	thead.appendChild(tr);
@@ -200,8 +209,12 @@ function fillTableWithDepartments (data) {
 		var tdDeptName = document.createElement('td');
 		tdDeptName.innerHTML = data[i].dept_name;
 
+		var tdTotalEmployees = document.createElement('td');
+		tdTotalEmployees.innerHTML = data[i].total_employees;
+
 		tr.appendChild(tdDeptNo);
 		tr.appendChild(tdDeptName);
+		tr.appendChild(tdTotalEmployees);
 
 		addActionsToRecord(tr);
 
