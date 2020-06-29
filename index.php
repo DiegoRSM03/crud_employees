@@ -12,6 +12,7 @@
 <body>
 	<?php
 		require_once('./components/navbar.php');
+		require_once('./components/searchbar.php');
 		require_once('./components/tables.php');
 		require_once('./components/table_selected.php');
 	?>

@@ -1,0 +1,84 @@
+#searchbar
+	margin: 6rem 0 4rem
+
+	.content
+		flex-direction: column
+		height: 100%
+
+		.searchbox
+			display: flex
+			align-items: center
+			justify-content: space-between
+			width: 100%
+			height: 2.5rem
+
+			.button
+				cursor: pointer
+
+				span
+					cursor: pointer
+					margin-left: .5rem
+
+			.button-box
+				display: flex
+
+				width: 84%
+				height: 100%
+
+				#filters-button
+					display: flex
+					align-items: center
+					justify-content: center
+
+					color: $WHITE
+					background-color: $BLACK
+					border-radius: 5px 0 0 5px
+					font-family: $OS
+					width: 20%
+
+				input[type=text]
+					color: $BLACK
+					background-color: $WHITE
+					border-radius: 0 5px 5px 0
+					border: 1px solid $GRAY
+
+					font-family: $OS
+					font-size: 1rem
+
+					width: 80%
+					height: 100%
+					padding: 0 .5rem
+
+			.search-button
+				display: flex
+				align-items: center
+				justify-content: center
+
+				color: $WHITE
+				background-color: $PURPLE
+				border-radius: 5px
+				font-family: $OSBold
+				
+				width: 15%
+				height: 100%
+
+		#filters
+			display: none
+			justify-content: space-between
+
+			background-color: $WHITE
+			border-radius: 5px
+			border: 1px solid $GRAY
+
+			width: 100%
+			padding: 1rem 2rem
+			margin-top: 1rem
+
+			>div h3
+				color: $BLACK
+				font-family: $OSBold
+				margin-bottom: .5rem
+
+			>div >div label
+				color: darken($GRAY, 15)
+				font-family: $OS

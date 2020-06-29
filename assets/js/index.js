@@ -1,8 +1,11 @@
+var showSearchBar = false;
+
 document.addEventListener('DOMContentLoaded', function () {
 	localStorage.setItem('page', '1');
 
 	retrieveTable('employees');
 
+	// AÑADIENDO EVENT LISTENERS A BOTONES PARA CAMBIAR TABLAS
 	document.getElementById('table-employees').addEventListener('click', function () {
 		localStorage.setItem('page', '1');
 		retrieveTable('employees');
@@ -24,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		selectTable('table-salaries');
 	});
 
+	// EVENT LISTENERS PARA BOTONES DE PAGINACION
 	document.getElementById('prev-page').addEventListener('click', function () {
 		var currentPage = localStorage.getItem('page');
 		if (currentPage != 1) {
@@ -38,6 +42,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		localStorage.setItem('page', currentPage);
 
 		retrieveTable(localStorage.getItem('section'));
+	});
+
+	// EVENT LISTENERS PARA BOTON DE FILTROS
+	document.getElementById('filters-button').addEventListener('click', function () {
+		showSearchBar = !showSearchBar;
+		if (showSearchBar) {
+			document.getElementById('filters').style.display = 'flex';
+		} else {
+			document.getElementById('filters').style.display = 'none';
+		}
 	});
 });
 

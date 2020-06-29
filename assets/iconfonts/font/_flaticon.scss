@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 26/06/2020 00:13
+    Creation date: 29/06/2020 17:28
     */
 
     @font-face {
@@ -55,9 +55,12 @@
 .flaticon-gift:before { content: "\f10f"; }
 .flaticon-information:before { content: "\f110"; }
 .flaticon-warning:before { content: "\f111"; }
-.flaticon-warning-1:before { content: "\f112"; }
-.flaticon-invoice:before { content: "\f113"; }
-.flaticon-certificate:before { content: "\f114"; }
+.flaticon-invoice:before { content: "\f112"; }
+.flaticon-certificate:before { content: "\f113"; }
+.flaticon-cancel:before { content: "\f114"; }
+.flaticon-magnifying-glass:before { content: "\f115"; }
+.flaticon-pin:before { content: "\f116"; }
+.flaticon-id:before { content: "\f117"; }
     
     $font-Flaticon-check: "\f100";
     $font-Flaticon-dollar: "\f101";
@@ -77,6 +80,9 @@
     $font-Flaticon-gift: "\f10f";
     $font-Flaticon-information: "\f110";
     $font-Flaticon-warning: "\f111";
-    $font-Flaticon-warning-1: "\f112";
-    $font-Flaticon-invoice: "\f113";
-    $font-Flaticon-certificate: "\f114";
+    $font-Flaticon-invoice: "\f112";
+    $font-Flaticon-certificate: "\f113";
+    $font-Flaticon-cancel: "\f114";
+    $font-Flaticon-magnifying-glass: "\f115";
+    $font-Flaticon-pin: "\f116";
+    $font-Flaticon-id: "\f117";

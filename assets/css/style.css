@@ -99,42 +99,108 @@ nav {
     nav .content span {
       font-size: 1.6rem; }
 
-.tables {
-  margin-top: 6rem; }
-  .tables .content {
-    align-items: center;
-    justify-content: space-between; }
-    .tables .content .table {
-      color: #A2A2A2;
-      background-color: #FAFAFA;
-      font-family: "OpenSans Bold";
+#searchbar {
+  margin: 6rem 0 4rem; }
+  #searchbar .content {
+    flex-direction: column;
+    height: 100%; }
+    #searchbar .content .searchbox {
       display: flex;
       align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: .3s ease 0s;
-      width: 15rem;
-      padding: .7rem 0;
-      border: 1px solid #A2A2A2;
+      justify-content: space-between;
+      width: 100%;
+      height: 2.5rem; }
+      #searchbar .content .searchbox .button {
+        cursor: pointer; }
+        #searchbar .content .searchbox .button span {
+          cursor: pointer;
+          margin-left: .5rem; }
+      #searchbar .content .searchbox .button-box {
+        display: flex;
+        width: 84%;
+        height: 100%; }
+        #searchbar .content .searchbox .button-box #filters-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #FAFAFA;
+          background-color: #222;
+          border-radius: 5px 0 0 5px;
+          font-family: "OpenSans";
+          width: 20%; }
+        #searchbar .content .searchbox .button-box input[type=text] {
+          color: #222;
+          background-color: #FAFAFA;
+          border-radius: 0 5px 5px 0;
+          border: 1px solid #A2A2A2;
+          font-family: "OpenSans";
+          font-size: 1rem;
+          width: 80%;
+          height: 100%;
+          padding: 0 .5rem; }
+      #searchbar .content .searchbox .search-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FAFAFA;
+        background-color: #a000a6;
+        border-radius: 5px;
+        font-family: "OpenSans Bold";
+        width: 15%;
+        height: 100%; }
+    #searchbar .content #filters {
+      display: none;
+      justify-content: space-between;
+      background-color: #FAFAFA;
       border-radius: 5px;
-      box-shadow: 0 2px 1px 1px rgba(24, 24, 24, 0.1); }
-      .tables .content .table span {
-        margin-right: .5rem;
-        cursor: pointer; }
-      .tables .content .table .title {
-        cursor: pointer; }
-      .tables .content .table:hover {
-        transform: scale(1.1);
-        box-shadow: 0 7px 3px 1px rgba(24, 24, 24, 0.1); }
-    .tables .content .table-selected {
-      color: #FAFAFA;
-      background-color: #a000a6;
-      border: 1px solid #a000a6; }
+      border: 1px solid #A2A2A2;
+      width: 100%;
+      padding: 1rem 2rem;
+      margin-top: 1rem; }
+      #searchbar .content #filters > div h3 {
+        color: #222;
+        font-family: "OpenSans Bold";
+        margin-bottom: .5rem; }
+      #searchbar .content #filters > div > div label {
+        color: #7c7c7c;
+        font-family: "OpenSans"; }
+
+.tables .content {
+  align-items: center;
+  justify-content: space-between; }
+  .tables .content .table {
+    color: #A2A2A2;
+    background-color: #FAFAFA;
+    font-family: "OpenSans Bold";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease 0s;
+    width: 15rem;
+    padding: .7rem 0;
+    border: 1px solid #A2A2A2;
+    border-radius: 5px;
+    box-shadow: 0 2px 1px 1px rgba(24, 24, 24, 0.1); }
+    .tables .content .table span {
+      margin-right: .5rem;
+      cursor: pointer; }
+    .tables .content .table .title {
+      cursor: pointer; }
+    .tables .content .table:hover {
+      transform: scale(1.1);
+      box-shadow: 0 7px 3px 1px rgba(24, 24, 24, 0.1); }
+  .tables .content .table-selected {
+    color: #FAFAFA;
+    background-color: #a000a6;
+    border: 1px solid #a000a6; }
 
 .table_selected {
-  margin-top: 5rem; }
+  margin-top: 1.5rem; }
   .table_selected .content {
     flex-direction: column; }
+    .table_selected .content table tbody tr td {
+      cursor: pointer; }
     .table_selected .content .pagination {
       display: flex;
       align-items: center;
