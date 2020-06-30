@@ -5,29 +5,133 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	retrieveTable('employees');
 
-	// AÑADIENDO EVENT LISTENERS A BOTONES PARA CAMBIAR TABLAS
+	listenersToChangeTables();
+
+	listenersToPagination();
+
+	// EVENT LISTENERS PARA BOTON DE FILTROS
+	document.getElementById('filters-button').addEventListener('click', function () {
+		showSearchBar = !showSearchBar;
+		if (showSearchBar) {
+			document.getElementById('filters').style.display = 'flex';
+		} else {
+			document.getElementById('filters').style.display = 'none';
+		}
+	});
+});
+
+function listenersToChangeTables () {
 	document.getElementById('table-employees').addEventListener('click', function () {
 		localStorage.setItem('page', '1');
+		
+		if (localStorage.getItem('section') != 'employees') {
+			var radioButtonsOptions = {
+				first: {
+					title: 'Numero de Empleado',
+					nameIdValue: 'emp_no'
+				},
+				second: {
+					title: 'Nombre',
+					nameIdValue: 'first_name'
+				},
+				third: {
+					title: 'Apellido',
+					nameIdValue: 'last_name'
+				},
+				fourth: {
+					title: 'Fecha de Contratacion',
+					nameIdValue: 'hire_date'
+				}
+			}
+			changeFilterOptions(radioButtonsOptions);
+		}
+
 		retrieveTable('employees');
 		selectTable('table-employees');
 	});
 	document.getElementById('table-departments').addEventListener('click', function () {
 		localStorage.setItem('page', '1');
+
+		if (localStorage.getItem('section') != 'departments') {
+			var radioButtonsOptions = {
+				first: {
+					title: 'Numero de Departamento',
+					nameIdValue: 'dept_no'
+				},
+				second: {
+					title: 'Nombre del Departamento',
+					nameIdValue: 'dept_name'
+				},
+				third: {
+					title: 'Total de Empleados',
+					nameIdValue: 'total_employees'
+				}
+			}
+			changeFilterOptions(radioButtonsOptions);
+		}
+
 		retrieveTable('departments');
 		selectTable('table-departments');
 	});
 	document.getElementById('table-titles').addEventListener('click', function () {
 		localStorage.setItem('page', '1');
+
+		if (localStorage.getItem('section') != 'titles') {
+			var radioButtonsOptions = {
+				first: {
+					title: 'Numero de Empleado',
+					nameIdValue: 'emp_no'
+				},
+				second: {
+					title: 'Nombre del Titulo',
+					nameIdValue: 'title'
+				},
+				third: {
+					title: 'Fecha de inicio',
+					nameIdValue: 'from_date'
+				},
+				fourth: {
+					title: 'Fecha de Expiración',
+					nameIdValue: 'to_date'
+				}
+			}
+			changeFilterOptions(radioButtonsOptions);
+		}
+
 		retrieveTable('titles');
 		selectTable('table-titles');
 	});
 	document.getElementById('table-salaries').addEventListener('click', function () {
 		localStorage.setItem('page', '1');
+
+		if (localStorage.getItem('section') != 'salaries') {
+			var radioButtonsOptions = {
+				first: {
+					title: 'Numero de Empleado',
+					nameIdValue: 'emp_no'
+				},
+				second: {
+					title: 'Salario',
+					nameIdValue: 'salary'
+				},
+				third: {
+					title: 'Inicio del Año',
+					nameIdValue: 'from_date'
+				},
+				fourth: {
+					title: 'Fin del Año',
+					nameIdValue: 'to_date'
+				}
+			}
+			changeFilterOptions(radioButtonsOptions);
+		}
+
 		retrieveTable('salaries');
 		selectTable('table-salaries');
 	});
+}
 
-	// EVENT LISTENERS PARA BOTONES DE PAGINACION
+function listenersToPagination () {
 	document.getElementById('prev-page').addEventListener('click', function () {
 		var currentPage = localStorage.getItem('page');
 		if (currentPage != 1) {
@@ -43,24 +147,78 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		retrieveTable(localStorage.getItem('section'));
 	});
+}
 
-	// EVENT LISTENERS PARA BOTON DE FILTROS
-	document.getElementById('filters-button').addEventListener('click', function () {
-		showSearchBar = !showSearchBar;
-		if (showSearchBar) {
-			document.getElementById('filters').style.display = 'flex';
-		} else {
-			document.getElementById('filters').style.display = 'none';
-		}
+function changeFilterOptions (options) {
+	emptyFilters();
+	var filterOptions = document.getElementById('filter-options');
+
+	var h3Title = document.createElement('h3');
+	filterOptions.appendChild(h3Title);
+
+	Object.keys(options).forEach(function (option) {
+		var divOrderBy = document.createElement('div');
+
+		h3Title.innerHTML = 'Ordenar por';
+		
+		var radioButton = document.createElement('input');
+		radioButton.setAttribute('type', 'radio');
+		radioButton.setAttribute('name', 'order-by');
+		radioButton.setAttribute('id', 'order-by-' + options[option].nameIdValue);
+		radioButton.setAttribute('value', options[option].nameIdValue);
+
+		var labelForRadio = document.createElement('label');
+		labelForRadio.setAttribute('for', 'order-by-' + options[option].nameIdValue);
+		labelForRadio.innerHTML = options[option].title;
+
+		divOrderBy.appendChild(radioButton);
+		divOrderBy.appendChild(labelForRadio);
+
+		filterOptions.appendChild(divOrderBy);
 	});
-});
+
+	// MARCA COMO SELECCIONADO LA PRIMERA OPCION DE LOS RADIO BUTTONS
+	setFirstOptionChecked();
+}
 
 async function retrieveTable (tableName) {
-	let response = await fetch(window.location.href + 'database/api/v1/' + tableName + '/retrieve.php?page=' + localStorage.getItem('page'));
-	let data = await response.json();
+	var apiPath = 'database/api/v1/retrieve.php?';
+	apiPath += `section=${tableName}&`;
+	apiPath += `page=${localStorage.getItem('page')}&`;
+	
+	var form = document.getElementById('searchbar');
+	
+	var orderByOption = getRadioButtonChecked(form, 'order-by');
+	apiPath += `order_by=${orderByOption}&`;
+
+	var ascOrDescOption = getRadioButtonChecked(form, 'order-asc-desc');
+	apiPath += `order_asc_desc=${ascOrDescOption}`;
+
+	var response = await fetch(window.location.href + apiPath);
+	var data = await response.json();
 	console.log(data);
 
 	fillTable(data, tableName);
+}
+
+function getRadioButtonChecked (form, nameButtonGroup) {
+	var valueChecked;
+	var radioButtons = form.elements[nameButtonGroup];
+
+	for (var i=0 ; i<radioButtons.length ; i++) {
+		if (radioButtons[i].checked) {
+			valueChecked = radioButtons[i].value;
+			break;
+		}
+	}
+	return valueChecked;
+}
+
+function setFirstOptionChecked () {
+	var form = document.getElementById('searchbar');
+
+	form.elements['order-by'][0].setAttribute('checked', '');
+	form.elements['order-asc-desc'][0].setAttribute('checked', '');
 }
 
 function selectTable (idTableSelected) {
@@ -97,6 +255,11 @@ function emptyTable () {
 
 	var tbody = document.getElementById('tbody');
 	tbody.innerHTML = '';
+}
+
+function emptyFilters () {
+	var filterOptions = document.getElementById('filter-options');
+	filterOptions.innerHTML = '';
 }
 
 function fillTable (data, tableName) {

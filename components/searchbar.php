@@ -1,4 +1,4 @@
-<div id="searchbar" class="container">
+<form id="searchbar" class="container">
 	<div class="content">
 		<div class="searchbox">
 			<div class="button-box">
@@ -8,13 +8,13 @@
 				</div>
 				<input type="text" name="search" id="search" placeholder="Que desea buscar?">
 			</div>
-			<div class="search-button button">
+			<button type="submit" class="search-button button">
 				Buscar
 				<span class="flaticon-magnifying-glass"></span>
-			</div>
+			</button>
 		</div>
 		<div id="filters">
-			<div class="sections">
+			<div id="filter-options" class="sections">
 				<h3>Ordenar por</h3>
 				<div class="order-by">
 					<input type="radio" name="order-by" id="order-by-id" value="emp_no" checked>
@@ -37,14 +37,14 @@
 			<div class="asc-desc">
 				<h3>Ascendente o Descendente</h3>
 				<div class="order">
-					<input type="radio" name="order-asc-desc" id="order-asc">
+					<input type="radio" name="order-asc-desc" id="order-asc" value="ASC" checked>
 					<label for="order-asc">Ascendente</label>
 				</div>
 				<div class="order">
-					<input type="radio" name="order-asc-desc" id="order-desc">
+					<input type="radio" name="order-asc-desc" id="order-desc" value="DESC">
 					<label for="order-desc">Descendente</label>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</form>
