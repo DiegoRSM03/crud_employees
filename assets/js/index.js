@@ -165,7 +165,11 @@ function listenersToPagination () {
 		currentPage++;
 		localStorage.setItem('page', currentPage);
 
-		retrieveTable(localStorage.getItem('section'));
+		if (localStorage.getItem('current_action') == 'show_records') {
+			retrieveTable(localStorage.getItem('section'));
+		} else if (localStorage.getItem('current_action') == 'search_records') {
+			searchRecords(localStorage.getItem('section'));
+		}
 	});
 }
 
