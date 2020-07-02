@@ -82,11 +82,57 @@ table {
         color: #FAFAFA;
         background-color: #a000a6; }
 
+#helper-box {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-top: -50%;
+  transition: 1s linear 0s;
+  background-color: #222;
+  height: 7rem; }
+  #helper-box .content {
+    align-items: center;
+    justify-content: space-between;
+    height: 100%; }
+    #helper-box .content .info {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; }
+      #helper-box .content .info #helper-iconfont {
+        color: #FAFAFA;
+        font-size: 3rem;
+        margin-right: 3rem; }
+      #helper-box .content .info .information-text h1 {
+        color: #FAFAFA;
+        font-family: "OpenSans Bold";
+        font-size: 1.3rem; }
+      #helper-box .content .info .information-text p {
+        color: #efefef;
+        font-family: "OpenSans";
+        font-size: 1rem; }
+    #helper-box .content #close-helper-box {
+      color: #FAFAFA;
+      background-color: rgba(0, 0, 0, 0);
+      font-family: "OpenSans Bold";
+      font-size: .8rem;
+      border-radius: 5px;
+      border: 1px solid #FAFAFA;
+      padding: .8rem 2rem;
+      cursor: pointer;
+      transition: .3s ease 0s; }
+      #helper-box .content #close-helper-box span {
+        margin-right: .3rem; }
+      #helper-box .content #close-helper-box:hover {
+        color: #222;
+        background-color: #FAFAFA; }
+
 nav {
   color: #FAFAFA;
   background-color: #222;
   position: fixed;
-  z-index: 100;
+  z-index: 80;
   top: 0;
   left: 0;
   right: 0; }

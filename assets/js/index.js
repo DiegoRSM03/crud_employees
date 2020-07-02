@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
 			document.getElementById('filters').style.display = 'none';
 		}
 	});
+
+	// EVENT LISTENER PARA BUSCAR REGISTROS
+	document.getElementById('search-button').addEventListener('click', function () {
+		searchRecords(localStorage.getItem('section'));
+	})
+
+	// BOTON DE CERRAR CUADRO DE AYUDA
+	document.getElementById('close-helper-box').addEventListener('click', function () {
+		document.querySelector('#helper-box').style.marginTop = '-50%';
+	});
 });
 
 function listenersToChangeTables () {
@@ -134,10 +144,20 @@ function listenersToChangeTables () {
 function listenersToPagination () {
 	document.getElementById('prev-page').addEventListener('click', function () {
 		var currentPage = localStorage.getItem('page');
-		if (currentPage != 1) {
-			currentPage--;
-			localStorage.setItem('page', currentPage);
-			retrieveTable(localStorage.getItem('section'));
+		if (localStorage.getItem('current_action') == 'show_records') {
+			if (currentPage != 1) {
+				currentPage--;
+				localStorage.setItem('page', currentPage);
+				retrieveTable(localStorage.getItem('section'));
+			} else {
+				helperAlert('warning', 'No hay mas paginas', 'Actualmente estas en la pagina 1, no hay mas paginas antes.')
+			}
+		} else if (localStorage.getItem('current_action') == 'search_records') {
+			if (currentPage != 1) {
+				currentPage--;
+				localStorage.setItem('page', currentPage);
+				searchRecords(localStorage.getItem('section'));
+			}
 		}
 	});
 	document.getElementById('next-page').addEventListener('click', function () {
@@ -147,6 +167,34 @@ function listenersToPagination () {
 
 		retrieveTable(localStorage.getItem('section'));
 	});
+}
+
+function helperAlert (type, title, description) {
+	var $helperBox = document.querySelector('#helper-box');
+	var $iconfont = document.querySelector('#helper-iconfont');
+
+	switch (type) {
+		case 'warning':
+			$helperBox.style.backgroundColor = '#CDC300';
+			$iconfont.classList.add('flaticon-warning');
+		break;
+		case 'information':
+			$helperBox.style.backgroundColor = '#0057BF';
+			$iconfont.classList.add('flaticon-information');
+		break;
+		case 'success':
+			$helperBox.style.backgroundColor = '#40B000';
+			$iconfont.classList.add('flaticon-check');
+		break;
+	}
+
+	var $titleHelperBox = document.querySelector('#title-information');
+	$titleHelperBox.innerHTML = title;
+
+	var $descriptionHelperBox = document.querySelector('#lore-information');
+	$descriptionHelperBox.innerHTML = description;
+
+	$helperBox.style.marginTop = '0';
 }
 
 function changeFilterOptions (options) {
@@ -182,6 +230,8 @@ function changeFilterOptions (options) {
 }
 
 async function retrieveTable (tableName) {
+	localStorage.setItem('current_action', 'show_records');
+	
 	var apiPath = 'database/api/v1/retrieve.php?';
 	apiPath += `section=${tableName}&`;
 	apiPath += `page=${localStorage.getItem('page')}&`;
@@ -197,6 +247,35 @@ async function retrieveTable (tableName) {
 	var response = await fetch(window.location.href + apiPath);
 	var data = await response.json();
 	console.log(data);
+
+	fillTable(data, tableName);
+}
+
+async function searchRecords (tableName) {
+	localStorage.setItem('current_action', 'search_records');
+
+	var apiPath = 'database/api/v1/search.php?';
+	apiPath += `section=${tableName}&`;
+	apiPath += `page=${localStorage.getItem('page')}&`;
+
+	var form = document.getElementById('searchbar');
+	
+	var orderByOption = getRadioButtonChecked(form, 'order-by');
+	apiPath += `order_by=${orderByOption}&`;
+	
+	var ascOrDescOption = getRadioButtonChecked(form, 'order-asc-desc');
+	apiPath += `order_asc_desc=${ascOrDescOption}&`;
+	
+	var recordSearched = form.elements['search'].value;
+	apiPath += `search=${recordSearched}`;
+
+	var response = await fetch(window.location.href + apiPath);
+	var data = await response.json();
+	console.log(data);
+
+	if (data == '') {
+		helperAlert('information', 'No hay registros encontrados', 'No se encontraron registros. Asegurate de que los filtros coincidan con lo que estas buscando.')
+	}
 
 	fillTable(data, tableName);
 }

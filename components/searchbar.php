@@ -8,10 +8,10 @@
 				</div>
 				<input type="text" name="search" id="search" placeholder="Que desea buscar?">
 			</div>
-			<button type="submit" class="search-button button">
+			<div id="search-button" class="search-button button">
 				Buscar
 				<span class="flaticon-magnifying-glass"></span>
-			</button>
+			</div>
 		</div>
 		<div id="filters">
 			<div id="filter-options" class="sections">

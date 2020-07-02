@@ -1,0 +1,61 @@
+#helper-box
+	position: fixed
+	z-index: 100
+	top: 0
+	left: 0
+	right: 0
+	margin-top: -50%
+	transition: 1s linear 0s
+	
+	background-color: $BLACK
+	height: 7rem
+
+	.content
+		align-items: center
+		justify-content: space-between
+		height: 100%
+
+		.info
+			display: flex
+			align-items: center
+			justify-content: flex-start
+
+			#helper-iconfont
+				color: $WHITE
+				font-size: 3rem
+				margin-right: 3rem
+				
+
+			.information-text
+				h1
+					color: $WHITE
+					font-family: $OSBold
+					font-size: 1.3rem
+				p
+					color: lighten($GRAY, 30)
+					font-family: $OS
+					font-size: 1rem
+
+		#close-helper-box
+			color: $WHITE
+			background-color: rgba(0, 0, 0, 0)
+
+			font-family: $OSBold
+			font-size: .8rem
+			
+			border-radius: 5px
+			border: 1px solid $WHITE
+
+			padding: .8rem 2rem
+			cursor: pointer
+			transition: .3s ease 0s
+
+			span
+				margin-right: .3rem
+
+			&:hover
+				color: $BLACK
+				background-color: $WHITE
+
+
+

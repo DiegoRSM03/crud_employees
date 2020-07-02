@@ -15,6 +15,7 @@
 		require_once('./components/searchbar.php');
 		require_once('./components/tables.php');
 		require_once('./components/table_selected.php');
+		require_once('./components/helper_box.php');
 	?>
 	
 	<script src="assets/js/index.js"></script>
