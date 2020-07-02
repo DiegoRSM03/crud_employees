@@ -144,20 +144,17 @@ function listenersToChangeTables () {
 function listenersToPagination () {
 	document.getElementById('prev-page').addEventListener('click', function () {
 		var currentPage = localStorage.getItem('page');
-		if (localStorage.getItem('current_action') == 'show_records') {
-			if (currentPage != 1) {
-				currentPage--;
-				localStorage.setItem('page', currentPage);
-				retrieveTable(localStorage.getItem('section'));
-			} else {
-				helperAlert('warning', 'No hay mas paginas', 'Actualmente estas en la pagina 1, no hay mas paginas antes.')
-			}
-		} else if (localStorage.getItem('current_action') == 'search_records') {
-			if (currentPage != 1) {
-				currentPage--;
-				localStorage.setItem('page', currentPage);
-				searchRecords(localStorage.getItem('section'));
-			}
+
+		if (localStorage.getItem('current_action') == 'show_records' && currentPage != 1) {
+			currentPage--;
+			localStorage.setItem('page', currentPage);
+			retrieveTable(localStorage.getItem('section'));
+		} else if (localStorage.getItem('current_action') == 'search_records' && currentPage != 1) {
+			currentPage--;
+			localStorage.setItem('page', currentPage);
+			searchRecords(localStorage.getItem('section'));
+		} else {
+			helperAlert('warning', 'No hay mas paginas', 'Actualmente estas en la pagina 1, no hay mas paginas antes.')
 		}
 	});
 	document.getElementById('next-page').addEventListener('click', function () {
@@ -176,6 +173,7 @@ function listenersToPagination () {
 function helperAlert (type, title, description) {
 	var $helperBox = document.querySelector('#helper-box');
 	var $iconfont = document.querySelector('#helper-iconfont');
+	$iconfont.setAttribute('class', '');
 
 	switch (type) {
 		case 'warning':
@@ -314,22 +312,38 @@ function selectTable (idTableSelected) {
 	document.getElementById(idTableSelected).classList.add('table-selected');
 }
 
-function addActionsToRecord (tr) {
+function addActionsToRecord (tr, emp_no) {
 	var actions = document.createElement('td');
 	actions.classList.add('actions');
 
 	var update = document.createElement('span');
 	update.classList.add('flaticon-edit');
 	update.classList.add('edit');
+	update.id = emp_no;
+	update.addEventListener('click', function () {
+		updateRecord(emp_no);
+	})
 
 	var remove = document.createElement('span');
 	remove.classList.add('flaticon-delete');
 	remove.classList.add('remove');
+	remove.id = emp_no;
+	remove.addEventListener('click', function () {
+		removeRecord(emp_no);
+	})
 
 	actions.appendChild(update);
 	actions.appendChild(remove);
 
 	tr.appendChild(actions);
+}
+
+function updateRecord (emp_no) {
+
+}
+
+function removeRecord (emp_no) {
+
 }
 
 function emptyTable () {
@@ -421,7 +435,7 @@ function fillTableWithUsers (data) {
 		tdHireDate.innerHTML = data[i].hire_date;
 		tr.appendChild(tdHireDate);
 
-		addActionsToRecord(tr);
+		addActionsToRecord(tr, data[i].emp_no);
 
 		tbody.appendChild(tr);
 
@@ -476,7 +490,7 @@ function fillTableWithDepartments (data) {
 		tr.appendChild(tdDeptName);
 		tr.appendChild(tdTotalEmployees);
 
-		addActionsToRecord(tr);
+		addActionsToRecord(tr, data[i].emp_no);
 
 		tbody.appendChild(tr);
 	}
@@ -535,7 +549,7 @@ function fillTableWithTitles (data) {
 		tr.appendChild(tdFromDate);
 		tr.appendChild(tdToDate);
 
-		addActionsToRecord(tr);
+		addActionsToRecord(tr, data[i].emp_no);
 
 		tbody.appendChild(tr);
 	}
@@ -594,7 +608,7 @@ function fillTableWithSalaries (data) {
 		tr.appendChild(tdFromDate);
 		tr.appendChild(tdToDate);
 
-		addActionsToRecord(tr);
+		addActionsToRecord(tr, data[i].emp_no);
 
 		tbody.appendChild(tr);
 	}
