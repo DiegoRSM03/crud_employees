@@ -64,12 +64,12 @@ table {
         justify-content: space-evenly;
         font-size: 1rem;
         width: 100%; }
-        table tbody tr .actions .edit, table tbody tr .actions .remove {
+        table tbody tr .actions .edit, table tbody tr .actions .remove, table tbody tr .actions .view {
           display: flex;
           align-items: center;
           justify-content: center;
           width: 25%;
-          padding: .3rem;
+          padding: .5rem .2rem;
           color: #FAFAFA;
           background-color: #A2A2A2;
           border-radius: 3px;
@@ -79,6 +79,8 @@ table {
           background-color: #0057BF; }
         table tbody tr .actions .remove:hover {
           background-color: #B00000; }
+        table tbody tr .actions .view:hover {
+          background-color: #222; }
       table tbody tr:hover {
         color: #FAFAFA;
         background-color: #a000a6; }
@@ -128,6 +130,56 @@ table {
       #helper-box .content #close-helper-box:hover {
         color: #222;
         background-color: #FAFAFA; }
+
+#alert-delete {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  border: 1px solid #A2A2A2;
+  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.2);
+  padding: 3rem 8rem;
+  position: fixed;
+  z-index: 50;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-49.7%);
+  width: 80%;
+  max-width: 1200px; }
+  #alert-delete h1 {
+    color: #222;
+    font-family: "OpenSans Bold";
+    margin-bottom: 2rem; }
+  #alert-delete .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; }
+    #alert-delete .buttons .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "OpenSans";
+      font-size: .9rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 1px 3px rgba(34, 34, 34, 0.1);
+      cursor: pointer;
+      transition: .3s ease 0s;
+      width: 35%;
+      padding: 1rem 0; }
+      #alert-delete .buttons .button [class^=flaticon] {
+        margin-right: .5rem; }
+      #alert-delete .buttons .button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 1.5px 5px rgba(34, 34, 34, 0.1); }
+    #alert-delete .buttons #abort-delete {
+      color: #222;
+      border: 1px solid #222; }
+    #alert-delete .buttons #confirm-delete {
+      color: #FAFAFA;
+      background-color: #B00000; }
 
 nav {
   color: #FAFAFA;
@@ -255,6 +307,9 @@ nav {
       justify-content: space-between;
       width: 100%;
       margin: 1rem 0 2rem 0; }
+      .table_selected .content .pagination #pages {
+        color: #A2A2A2;
+        font-family: "OpenSans Bold"; }
       .table_selected .content .pagination #prev-page span {
         margin-right: .8rem; }
       .table_selected .content .pagination #next-page span {
@@ -271,6 +326,23 @@ nav {
         padding: .8rem 0;
         border-radius: 5px;
         cursor: pointer; }
+
+#edit-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a000a6;
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1200px; }
+  #edit-box h1 {
+    color: #FAFAFA;
+    font-family: "OpenSans Light";
+    font-weight: normal; }
 
 #banner {
   height: 20vh;

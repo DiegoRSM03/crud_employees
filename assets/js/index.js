@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	// BOTON DE CANCELAR ELIMINACION DE REGISTRO
+	document.getElementById('abort-delete').addEventListener('click', function () {
+		document.getElementById('alert-delete').style.display = 'none';
+	})
+
 	// EVENT LISTENER PARA BUSCAR REGISTROS
 	document.getElementById('search-button').addEventListener('click', function () {
 		searchRecords(localStorage.getItem('section'));
@@ -250,6 +255,8 @@ async function retrieveTable (tableName) {
 	var data = await response.json();
 	console.log(data);
 
+	showCurrentPage();
+
 	fillTable(data, tableName);
 }
 
@@ -279,7 +286,15 @@ async function searchRecords (tableName) {
 		helperAlert('information', 'No hay registros encontrados', 'No se encontraron registros. Asegurate de que los filtros coincidan con lo que estas buscando.')
 	}
 
+	showCurrentPage();
+
 	fillTable(data, tableName);
+}
+
+function showCurrentPage () {
+	$pages = document.querySelector('#pages');
+	currentPage = localStorage.getItem('page');
+	$pages.innerHTML = 'Page ' + currentPage;
 }
 
 function getRadioButtonChecked (form, nameButtonGroup) {
@@ -319,7 +334,7 @@ function addActionsToRecord (tr, emp_no) {
 	var update = document.createElement('span');
 	update.classList.add('flaticon-edit');
 	update.classList.add('edit');
-	update.id = emp_no;
+	update.id = "edit-" + emp_no;
 	update.addEventListener('click', function () {
 		updateRecord(emp_no);
 	})
@@ -327,13 +342,22 @@ function addActionsToRecord (tr, emp_no) {
 	var remove = document.createElement('span');
 	remove.classList.add('flaticon-delete');
 	remove.classList.add('remove');
-	remove.id = emp_no;
+	remove.id = "delete-" + emp_no;
 	remove.addEventListener('click', function () {
 		removeRecord(emp_no);
 	})
 
+	var view = document.createElement('span');
+	view.classList.add('flaticon-visibility');
+	view.classList.add('view');
+	view.id = "view-" + emp_no;
+	view.addEventListener('click', function () {
+		viewRecord(emp_no);
+	});
+
 	actions.appendChild(update);
 	actions.appendChild(remove);
+	actions.appendChild(view);
 
 	tr.appendChild(actions);
 }
@@ -343,7 +367,12 @@ function updateRecord (emp_no) {
 }
 
 function removeRecord (emp_no) {
+	document.getElementById('alert-delete').style.display = 'flex';
+	document.getElementById('information-delete').innerHTML = emp_no;
+}
 
+function viewRecord (emp_no) {
+	window.location.href = window.location.href + 'views/user.php?emp_no=' + emp_no;
 }
 
 function emptyTable () {
@@ -438,10 +467,6 @@ function fillTableWithUsers (data) {
 		addActionsToRecord(tr, data[i].emp_no);
 
 		tbody.appendChild(tr);
-
-		tr.addEventListener('click', function () {
-			window.location.href = window.location.href + 'views/user.php?emp_no=' + data[i].emp_no;
-		});
 	}
 }
 
