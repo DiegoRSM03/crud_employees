@@ -57,18 +57,18 @@ table {
       color: #A2A2A2;
       font-family: "OpenSans SemiBold"; }
       table tbody tr td {
-        padding: .3rem 0 .3rem 1rem;
+        padding: .3rem .5rem .3rem 1rem;
         font-size: .9rem; }
       table tbody tr .actions {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         font-size: 1rem;
         width: 100%; }
         table tbody tr .actions .edit, table tbody tr .actions .remove, table tbody tr .actions .view {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 25%;
+          width: 30%;
           padding: .5rem .2rem;
           color: #FAFAFA;
           background-color: #A2A2A2;

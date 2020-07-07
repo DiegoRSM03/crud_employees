@@ -372,7 +372,9 @@ function removeRecord (emp_no) {
 }
 
 function viewRecord (emp_no) {
-	window.location.href = window.location.href + 'views/user.php?emp_no=' + emp_no;
+	if (localStorage.getItem('section') == 'employees') {
+		window.location.href = window.location.href + 'views/user.php?emp_no=' + emp_no;
+	}
 }
 
 function emptyTable () {
